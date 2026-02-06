@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url=mailto:brian.c.johnson15.civ@us.navy.mil">
-    
     <script type="text/javascript">
-      window.location.href = "mailto:brian.c.johnson15.civ@us.navy.mil";
+      // This encodes the text so it works as a URL
+      var email = "brian.c.johnson15.civ@us.navy.mil";
+      var subject = encodeURIComponent("Overtime Inquiry");
+      var body = encodeURIComponent("Dear Chris:\n\ni wanna work overtime over there where u guys r at, need money. lol");
+      
+      window.location.href = "mailto:" + email + "?subject=" + subject + "&body=" + body;
     </script>
   </head>
   <body>

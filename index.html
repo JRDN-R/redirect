@@ -5,338 +5,377 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dental Providers & Offices</title>
   <style>
-    :root{
-      --bg: #0b0f14;
-      --card: #121923;
-      --muted: rgba(255,255,255,.72);
-      --text: rgba(255,255,255,.92);
-      --line: rgba(255,255,255,.10);
-      --accent: #6aa9ff;
-      --accent2: #7ef0c1;
-      --warn: #ffcf6a;
-      --radius: 16px;
-      --shadow: 0 14px 40px rgba(0,0,0,.45);
-    }
-    *{ box-sizing: border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      background:
-        radial-gradient(1200px 800px at 20% 0%, rgba(106,169,255,.18), transparent 60%),
-        radial-gradient(1000px 700px at 100% 20%, rgba(126,240,193,.12), transparent 55%),
-        linear-gradient(180deg, #070a0f, var(--bg));
-      color: var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      line-height: 1.35;
+    :root {
+      /* Professional "Midnight Medical" Palette */
+      --bg: #0f172a;           /* Deep Navy Background */
+      --surface: #1e293b;      /* Lighter Navy Card */
+      --surface-hover: #334155;
+      --border: #334155;
+      
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      
+      --accent: #38bdf8;       /* Light Blue Links */
+      
+      /* Review Colors */
+      --score-high: #4ade80;   /* Green */
+      --score-med: #facc15;    /* Yellow */
+      --score-low: #f87171;    /* Red */
+      --score-none: #94a3b8;   /* Gray */
     }
 
-    /* 9:16 “phone” stage */
-    .stage{
-      min-height: 100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding: 18px 14px;
-    }
-    .phone{
-      width: min(430px, 100%);
-      aspect-ratio: 9 / 16;
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-    }
-    /* On very short viewports, allow natural height */
-    @media (max-height: 720px){
-      .phone{ aspect-ratio:auto; }
-    }
+    * { box-sizing: border-box; }
 
-    header{
-      padding: 18px 18px 14px;
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-    }
-    .title{
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: .2px;
-      margin:0 0 6px;
-    }
-    .subtitle{
-      margin:0;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    main{
-      padding: 14px 14px 18px;
-      overflow:auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
-    }
-
-    .section{
-      margin: 12px 0 16px;
-    }
-    .section h2{
-      font-size: 13px;
-      margin: 0 0 10px;
-      letter-spacing:.2px;
-      color: rgba(255,255,255,.86);
-    }
-
-    .card{
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 14px;
-      margin: 10px 0;
-    }
-    .card + .card{ margin-top: 12px; }
-
-    .practice{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .practice-name{
-      font-weight: 800;
-      font-size: 14px;
-      margin:0;
-    }
-    .badge{
-      font-size: 11px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
-      color: rgba(255,255,255,.80);
-      background: rgba(255,255,255,.04);
-      white-space: nowrap;
-    }
-
-    .meta{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 8px 10px;
-      margin: 0 0 12px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-    .meta a{
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px dashed rgba(106,169,255,.45);
-    }
-    .meta a:hover{ border-bottom-style: solid; }
-
-    .providers{
+    body {
       margin: 0;
-      padding: 0;
-      list-style:none;
-      display:flex;
-      flex-direction:column;
-      gap: 8px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.5;
+      padding-bottom: 40px;
     }
-    .providers li{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: 10px;
-      padding: 10px;
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px 16px;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    h1 { margin: 0; font-size: 22px; font-weight: 700; }
+    .subtitle { color: var(--text-secondary); font-size: 14px; margin-top: 4px; }
+
+    /* Office Cards */
+    .office-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
+      margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
-    .providers .name{
-      font-weight: 700;
+
+    .office-header {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+    .office-name { margin: 0 0 6px; font-size: 17px; font-weight: 600; }
+    .office-meta { font-size: 13px; color: var(--text-secondary); display: flex; gap: 8px; flex-wrap: wrap; }
+    .office-meta a { color: var(--accent); text-decoration: none; }
+
+    /* Provider List */
+    .provider-list { padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+    
+    .provider-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+      background: rgba(0,0,0,0.2);
+      border: 1px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .provider-row:hover {
+      background: var(--surface-hover);
+      border-color: var(--border);
+      transform: translateY(-1px);
+    }
+
+    .provider-info { flex: 1; min-width: 0; padding-right: 12px; }
+    .provider-name { display: block; font-weight: 600; font-size: 15px; margin-bottom: 2px; }
+    .provider-sub { display: block; font-size: 12px; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    /* Review Badges */
+    .review-badge {
       font-size: 13px;
-      margin: 0;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 99px;
+      min-width: 50px;
+      text-align: center;
+      color: #0f172a; /* Dark text for contrast */
     }
-    .providers .note{
-      margin: 4px 0 0;
-      font-size: 11px;
-      color: var(--muted);
-    }
-    .providers a{
-      color: var(--accent2);
-      text-decoration: none;
-      border-bottom: 1px dashed rgba(126,240,193,.45);
-      font-size: 12px;
-      white-space: nowrap;
-      margin-top: 2px;
-    }
-    .providers a:hover{ border-bottom-style: solid; }
+    .score-high { background-color: var(--score-high); box-shadow: 0 0 10px rgba(74, 222, 128, 0.2); }
+    .score-med  { background-color: var(--score-med); box-shadow: 0 0 10px rgba(250, 204, 21, 0.2); }
+    .score-low  { background-color: var(--score-low); box-shadow: 0 0 10px rgba(248, 113, 113, 0.2); }
+    .score-none { background-color: var(--score-none); color: #fff; opacity: 0.5; }
 
-    .callout{
-      margin-top: 10px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,207,106,.20);
-      background: rgba(255,207,106,.08);
-      color: rgba(255,255,255,.86);
-      font-size: 12px;
+    /* MODAL POPUP STYLES */
+    .modal-backdrop {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
     }
-    .callout strong{ color: rgba(255,255,255,.95); }
+    .modal-backdrop.active { opacity: 1; pointer-events: auto; }
 
-    footer{
-      border-top: 1px solid var(--line);
-      padding: 12px 16px;
-      font-size: 11px;
-      color: rgba(255,255,255,.62);
-      background: rgba(255,255,255,.02);
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      width: 100%; max-width: 450px;
+      border-radius: 16px;
+      padding: 24px;
+      transform: scale(0.95);
+      transition: transform 0.2s;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
     }
-    footer a{ color: var(--accent); text-decoration:none; }
+    .modal-backdrop.active .modal { transform: scale(1); }
+
+    .modal-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 20px; }
+    .modal-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin: 0; }
+    .modal-close { background: none; border: none; color: var(--text-secondary); font-size: 24px; cursor: pointer; padding: 0; line-height: 1; }
+    
+    .modal-score-block {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+      background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px;
+    }
+    .big-score { font-size: 28px; font-weight: 800; }
+    .score-label { font-size: 13px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .modal-section { margin-bottom: 16px; }
+    .modal-section h4 { font-size: 12px; text-transform: uppercase; color: var(--text-secondary); margin: 0 0 8px; letter-spacing: 0.5px; }
+    .modal-section p { font-size: 14px; margin: 0; color: var(--text-primary); }
+    
+    .tag-container { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { font-size: 12px; padding: 4px 8px; background: rgba(255,255,255,0.05); border-radius: 4px; color: var(--text-secondary); }
+
+    .btn-profile {
+      display: block; width: 100%; padding: 12px;
+      background: var(--accent); color: #0f172a;
+      text-align: center; text-decoration: none;
+      font-weight: 700; border-radius: 8px;
+      margin-top: 24px;
+    }
+    .btn-profile:hover { opacity: 0.9; }
+
   </style>
 </head>
 <body>
-  <div class="stage">
-    <div class="phone" role="document" aria-label="Dental providers and offices">
-      <header>
-        <p class="title">Dental Providers & Offices</p>
-        <p class="subtitle">Grouped by the shared address + phone number shown in your insurance results.</p>
-      </header>
 
-      <main>
-        <section class="section">
-          <h2>Office 1</h2>
+<div class="container">
+  <header>
+    <h1>Dental Provider Report</h1>
+    <p class="subtitle">Tap any provider to see their review analysis</p>
+  </header>
 
-          <div class="card">
-            <div class="practice">
-              <p class="practice-name">Sage Dental of Jacksonville Marietta</p>
-              <span class="badge">8209 W Beaver St Ste 100</span>
-            </div>
+  <div class="office-card">
+    <div class="office-header">
+      <h2 class="office-name">Sage Dental of Jacksonville Marietta</h2>
+      <div class="office-meta">
+        <span>8209 W Beaver St</span> • <a href="tel:+19047817782">(904) 781-7782</a>
+      </div>
+    </div>
 
-            <div class="meta">
-              <span>Jacksonville, FL 32220</span>
-              <span>•</span>
-              <a href="tel:+19047817782">(904) 781-7782</a>
-              <span>•</span>
-              <a href="https://mysagedental.com/jax-marietta/" target="_blank" rel="noopener">Practice page</a>
-            </div>
+    <div class="provider-list">
+      <div class="provider-row" onclick="openModal('brock')">
+        <div class="provider-info">
+          <span class="provider-name">Brock A. Philips</span>
+          <span class="provider-sub">General Dentistry</span>
+        </div>
+        <div class="review-badge score-high">88%</div>
+      </div>
 
-            <ul class="providers">
-              <li>
-                <div>
-                  <p class="name">Abeer M. Alkhaldi</p>
-                  <p class="note">Listed with this office in directories.</p>
-                </div>
-                <a href="https://www.healthgrades.com/dentist/dr-abeer-alkhaldi-u3yd3c2" target="_blank" rel="noopener">Profile</a>
-              </li>
+      <div class="provider-row" onclick="openModal('sharod')">
+        <div class="provider-info">
+          <span class="provider-name">Sharod McKinney</span>
+          <span class="provider-sub">General Dentistry</span>
+        </div>
+        <div class="review-badge score-high">94%</div>
+      </div>
 
-              <li>
-                <div>
-                  <p class="name">Susan B. Jones</p>
-                  <p class="note">Listed with this office in directories.</p>
-                </div>
-                <a href="https://www.dentalplans.com/dentists/florida/jacksonville/32220/dr-susan-jones-97592/" target="_blank" rel="noopener">Profile</a>
-              </li>
+      <div class="provider-row" onclick="openModal('susan')">
+        <div class="provider-info">
+          <span class="provider-name">Susan B. Jones</span>
+          <span class="provider-sub">General Dentistry</span>
+        </div>
+        <div class="review-badge score-med">60%</div>
+      </div>
 
-              <li>
-                <div>
-                  <p class="name">Sharod McKinney</p>
-                  <p class="note">Caution: online listings show other Jacksonville locations; insurance directories can be outdated/mapped oddly.</p>
-                </div>
-                <a href="https://www.zocdoc.com/dentist/sharod-mckinney-dmd-642519" target="_blank" rel="noopener">Profile</a>
-              </li>
+      <div class="provider-row" onclick="openModal('abeer')">
+        <div class="provider-info">
+          <span class="provider-name">Abeer M. Alkhaldi</span>
+          <span class="provider-sub">General Dentistry</span>
+        </div>
+        <div class="review-badge score-none">N/A</div>
+      </div>
 
-              <li>
-                <div>
-                  <p class="name">Haitham Nabood</p>
-                  <p class="note">You saw “out of plan as of 04/01/2026” in your results.</p>
-                </div>
-                <a href="https://www.dentalplans.com/dentists/florida/jacksonville/32220/dr-haitham-nabood-97592/" target="_blank" rel="noopener">Profile</a>
-              </li>
-
-              <li>
-                <div>
-                  <p class="name">Brock A. Philips</p>
-                  <p class="note">Listed with this office in directories.</p>
-                </div>
-                <a href="https://www.healthgrades.com/dentist/dr-brock-philips-27qj7" target="_blank" rel="noopener">Profile</a>
-              </li>
-
-              <li>
-                <div>
-                  <p class="name">Maria A. Rojas Salcedo</p>
-                  <p class="note">Listed with this office in directories.</p>
-                </div>
-                <a href="https://www.healthgrades.com/dentist/dr-maria-rojas-salcedo-3dxc4wl749" target="_blank" rel="noopener">Profile</a>
-              </li>
-
-              <li>
-                <div>
-                  <p class="name">Kirsten N. Vieira-Martinez</p>
-                  <p class="note">Listed with this office in directories (sometimes appears under nearby area listings).</p>
-                </div>
-                <a href="https://www.dentalplans.com/dentists/florida/neptune-beach/32266/dr-kirsten-vieira-martinez-334899/" target="_blank" rel="noopener">Profile</a>
-              </li>
-            </ul>
-
-            <div class="callout">
-              <strong>Practical takeaway:</strong> call the office number above to confirm which of these providers are actively scheduling at this location right now (directories lag).
-            </div>
-          </div>
-        </section>
-
-        <section class="section">
-          <h2>Office 2</h2>
-
-          <div class="card">
-            <div class="practice">
-              <p class="practice-name">JAX Multispecialty Dental Center (JR Dental network)</p>
-              <span class="badge">7101 Normandy Blvd</span>
-            </div>
-
-            <div class="meta">
-              <span>Jacksonville, FL 32205</span>
-              <span>•</span>
-              <a href="tel:+19047869200">(904) 786-9200</a>
-              <span>•</span>
-              <a href="https://jrdentalcare.com/locations/jax-multispecialty-dental-center/" target="_blank" rel="noopener">Practice page</a>
-            </div>
-
-            <ul class="providers">
-              <li>
-                <div>
-                  <p class="name">Magied Bishara</p>
-                  <p class="note">Listed with this location in directories.</p>
-                </div>
-                <a href="https://www.dentalplans.com/dentists/florida/jacksonville/32205/dr-magied-bishara-60085/" target="_blank" rel="noopener">Profile</a>
-              </li>
-
-              <li>
-                <div>
-                  <p class="name">Ashley M. De La Vega</p>
-                  <p class="note">Not a clean public match to this exact address found; your insurance directory groups her under this office phone.</p>
-                </div>
-                <a href="https://jrdentalcare.com/locations/jax-multispecialty-dental-center/" target="_blank" rel="noopener">Office</a>
-              </li>
-
-              <li>
-                <div>
-                  <p class="name">Peter S. Farag</p>
-                  <p class="note">Listed with this location in directories.</p>
-                </div>
-                <a href="https://www.dentalplans.com/dentists/florida/the-villages/32162/dr-peter-farag-304551/" target="_blank" rel="noopener">Profile</a>
-              </li>
-            </ul>
-
-            <div class="callout">
-              <strong>Practical takeaway:</strong> this looks like a group office listing multiple providers under one phone/address, not separate independent practices.
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer>
-        Tip: if you want, paste in more provider blocks from your insurance results and I can keep appending them into this same format.
-      </footer>
+      <div class="provider-row" onclick="openModal('haitham')">
+        <div class="provider-info">
+          <span class="provider-name">Haitham Nabood</span>
+          <span class="provider-sub">⚠️ Out of Network soon</span>
+        </div>
+        <div class="review-badge score-none">N/A</div>
+      </div>
     </div>
   </div>
+
+  <div class="office-card">
+    <div class="office-header">
+      <h2 class="office-name">JAX Multispecialty Dental Center</h2>
+      <div class="office-meta">
+        <span>7101 Normandy Blvd</span> • <a href="tel:+19047869200">(904) 786-9200</a>
+      </div>
+    </div>
+
+    <div class="provider-list">
+      <div class="provider-row" onclick="openModal('magied')">
+        <div class="provider-info">
+          <span class="provider-name">Magied Bishara</span>
+          <span class="provider-sub">General Dentistry</span>
+        </div>
+        <div class="review-badge score-high">90%</div>
+      </div>
+
+      <div class="provider-row" onclick="openModal('ashley')">
+        <div class="provider-info">
+          <span class="provider-name">Ashley M. De La Vega</span>
+          <span class="provider-sub">Recent Resident / New Grad</span>
+        </div>
+        <div class="review-badge score-none">N/A</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const dentistData = {
+    'brock': {
+      name: "Brock A. Philips",
+      score: "88%",
+      class: "score-high",
+      verdict: "Highly Reliable",
+      experience: "Patients frequently describe Dr. Philips as 'honest' and 'conservative' with treatment (doesn't push unnecessary procedures).",
+      trust: "High. Many reviews mention feeling safe and not pressured.",
+      link: "https://www.zocdoc.com/dentist/brock-philips-dmd-467525"
+    },
+    'sharod': {
+      name: "Sharod McKinney",
+      score: "94%",
+      class: "score-high",
+      verdict: "Patient Favorite",
+      experience: "Praised for explaining conditions clearly. Staff is noted as friendly. Very few negative reviews found.",
+      trust: "High. 4.7/5 rating on Healthgrades.",
+      link: "https://www.healthgrades.com/dentist/dr-sharod-mckinney-xynynqp"
+    },
+    'susan': {
+      name: "Susan B. Jones",
+      score: "60%",
+      class: "score-med",
+      verdict: "Mixed Bag",
+      experience: "Polarizing. Some patients (especially long-term) love her. Others felt she was rough or impatient with children.",
+      trust: "Moderate. 3.0/5 average. Seems to depend heavily on personality match.",
+      link: "https://www.healthgrades.com/dentist/dr-susan-jones-29vtr"
+    },
+    'magied': {
+      name: "Magied Bishara",
+      score: "90%",
+      class: "score-high",
+      verdict: "Excellent Tech & Skill",
+      experience: "Reviews mention he uses cameras to show you your teeth (transparency). Described as painless and skilled.",
+      trust: "Very High. Patients appreciate the visual proof of work needed.",
+      link: "https://www.healthgrades.com/dentist/dr-magied-bishara-ybpmwrz"
+    },
+    'abeer': {
+      name: "Abeer M. Alkhaldi",
+      score: "N/A",
+      class: "score-none",
+      verdict: "Insufficient Data",
+      experience: "Not enough public reviews to form a reliability consensus.",
+      trust: "Unknown",
+      link: "https://www.healthgrades.com/dentist/dr-abeer-alkhaldi-u3yd3c2"
+    },
+    'haitham': {
+      name: "Haitham Nabood",
+      score: "N/A",
+      class: "score-none",
+      verdict: "Limited Data / Warning",
+      experience: "Works at multiple chains (Greenberg/Sage). No specific reviews found for this exact location.",
+      trust: "Unknown. Note: Insurance marked as 'Out of Plan' soon.",
+      link: "#"
+    },
+    'ashley': {
+      name: "Ashley M. De La Vega",
+      score: "N/A",
+      class: "score-none",
+      verdict: "New Provider",
+      experience: "Likely a recent graduate or resident. No patient history available online yet.",
+      trust: "Unknown",
+      link: "#"
+    }
+  };
+
+  function openModal(id) {
+    const data = dentistData[id];
+    if(!data) return;
+
+    // Populate Modal
+    document.getElementById('m-name').innerText = data.name;
+    document.getElementById('m-score').innerText = data.score;
+    document.getElementById('m-verdict').innerText = data.verdict;
+    document.getElementById('m-exp').innerText = data.experience;
+    document.getElementById('m-trust').innerText = data.trust;
+    document.getElementById('m-link').href = data.link;
+
+    // Set Color
+    const scoreBlock = document.getElementById('m-score-block');
+    scoreBlock.className = 'modal-score-block'; // reset
+    
+    // Map class to color for text
+    if(data.class === 'score-high') scoreBlock.style.color = '#4ade80';
+    else if(data.class === 'score-med') scoreBlock.style.color = '#facc15';
+    else if(data.class === 'score-low') scoreBlock.style.color = '#f87171';
+    else scoreBlock.style.color = '#94a3b8';
+
+    // Show
+    document.getElementById('backdrop').classList.add('active');
+  }
+
+  function closeModal() {
+    document.getElementById('backdrop').classList.remove('active');
+  }
+
+  // Close on backdrop click
+  document.getElementById('backdrop').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+</script>
+
+<div id="backdrop" class="modal-backdrop">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title" id="m-name">Dr. Name</h3>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+
+    <div id="m-score-block" class="modal-score-block">
+      <div class="big-score" id="m-score">00%</div>
+      <div class="score-label" id="m-verdict">Verdict</div>
+    </div>
+
+    <div class="modal-section">
+      <h4>Common Experience</h4>
+      <p id="m-exp">...</p>
+    </div>
+
+    <div class="modal-section">
+      <h4>Reliability & Trust</h4>
+      <p id="m-trust">...</p>
+    </div>
+
+    <a href="#" target="_blank" id="m-link" class="btn-profile">View Full Profile</a>
+  </div>
+</div>
+
 </body>
 </html>

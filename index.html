@@ -19,7 +19,7 @@
       --score-high: #4ade80;   /* Green */
       --score-med: #facc15;    /* Yellow */
       --score-low: #f87171;    /* Red */
-      --score-none: #94a3b8;   /* Gray */
+      --score-none: #475569;   /* Gray */
     }
 
     * { box-sizing: border-box; }
@@ -182,73 +182,35 @@
 <div class="container">
   <header>
     <h1>Dental Provider Report</h1>
-    <p class="subtitle">Search 90+ local providers</p>
+    <p class="subtitle">Search 300+ local providers</p>
   </header>
 
   <div class="search-container">
-    <input type="text" id="searchInput" class="search-input" placeholder="Search doctor, street, or office..." onkeyup="filterList()">
+    <input type="text" id="searchInput" class="search-input" placeholder="Search doctor, street, or rating..." onkeyup="filterList()">
   </div>
 
   <div id="officeList">
 
-    <div class="office-card">
-      <div class="office-header">
-        <h2 class="office-name">Sage Dental of Jacksonville Marietta</h2>
-        <div class="office-meta">8209 W Beaver St • (904) 781-7782</div>
-      </div>
-      <div class="provider-list">
-        <div class="provider-row" onclick="openModal('sharod')">
-          <div class="provider-info"><span class="provider-name">Sharod McKinney</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-high">94%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('brock')">
-          <div class="provider-info"><span class="provider-name">Brock A. Philips</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-high">88%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('susan')">
-          <div class="provider-info"><span class="provider-name">Susan B. Jones</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">60%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('haitham')">
-          <div class="provider-info"><span class="provider-name">Haitham Nabood</span><span class="provider-sub warning-text">⚠️ Out of plan 04/01/26</span></div>
-          <div class="review-badge score-low">!</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="office-card">
-      <div class="office-header">
-        <h2 class="office-name">JAX Multispecialty Dental Center</h2>
-        <div class="office-meta">7101 Normandy Blvd • (904) 786-9200</div>
-      </div>
-      <div class="provider-list">
-        <div class="provider-row" onclick="openModal('magied')">
-          <div class="provider-info"><span class="provider-name">Magied Bishara</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-high">90%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('kevin_n')">
-          <div class="provider-info"><span class="provider-name">Kevin Nguyen</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-high">85%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('generic_jax')">
-          <div class="provider-info"><span class="provider-name">Peter S. Farag</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">75%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('generic_jax')">
-          <div class="provider-info"><span class="provider-name">Ammar Shano</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">78%</div>
-        </div>
-      </div>
-    </div>
-
     <div class="office-card" style="border-color: var(--score-high);">
       <div class="office-header">
-        <h2 class="office-name">Howard A. Fetner, DMD</h2>
-        <div class="office-meta">5212 Wesconnett Blvd • (904) 778-1455</div>
+        <h2 class="office-name">Top Rated / Perfect Score (5.0)</h2>
+        <div class="office-meta">Various Locations</div>
       </div>
       <div class="provider-list">
         <div class="provider-row" onclick="openModal('fetner')">
-          <div class="provider-info"><span class="provider-name">Howard A. Fetner</span><span class="provider-sub">General Practice</span></div>
+          <div class="provider-info"><span class="provider-name">Howard A. Fetner</span><span class="provider-sub">Wesconnett Blvd</span></div>
+          <div class="review-badge score-high">100%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('gatling')">
+          <div class="provider-info"><span class="provider-name">Robert S. Gatling</span><span class="provider-sub">Dunn Ave</span></div>
+          <div class="review-badge score-high">100%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('halady')">
+          <div class="provider-info"><span class="provider-name">Pratima G. Halady</span><span class="provider-sub">Dunn Ave</span></div>
+          <div class="review-badge score-high">100%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('debonis')">
+          <div class="provider-info"><span class="provider-name">Kristen N. De Bonis</span><span class="provider-sub">River City</span></div>
           <div class="review-badge score-high">100%</div>
         </div>
       </div>
@@ -256,199 +218,20 @@
 
     <div class="office-card">
       <div class="office-header">
-        <h2 class="office-name">Greenberg Dental (Normandy)</h2>
-        <div class="office-meta">5149 Normandy Blvd • (904) 781-1201</div>
+        <h2 class="office-name">Schloth Family Dentistry</h2>
+        <div class="office-meta">12086 Fort Caroline Rd • (904) 807-9127</div>
       </div>
       <div class="provider-list">
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Dipti Kanchan</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Paul Schloth</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-high">88%</div>
         </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Haeeun Lee</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Brooke Schloth Gilligan</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-high">88%</div>
         </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Nelson Paez Carrillo</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Kuldeep Pooran</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Juhi Soni</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Adam Tarboush</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="office-card">
-      <div class="office-header">
-        <h2 class="office-name">Greenberg Dental (Blanding 1)</h2>
-        <div class="office-meta">3706 Blanding Blvd • (904) 777-1477</div>
-      </div>
-      <div class="provider-list">
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Elizabeth Amoff</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Robert A. Brody</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Kristen M. Moore</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Sara Nofallah</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Remedios J. Santos</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Vy Truong</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Jelena M. Vathielil</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Wyman R. Woodward</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="office-card">
-      <div class="office-header">
-        <h2 class="office-name">Greenberg Dental (Blanding 2)</h2>
-        <div class="office-meta">5116 Blanding Blvd • (904) 573-7900</div>
-      </div>
-      <div class="provider-list">
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Haider Aldally</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Stephanie B. Chaves</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Adnan Hasona</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Khang Le</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Denise M. Six</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-      </div>
-    </div>
-
-     <div class="office-card">
-      <div class="office-header">
-        <h2 class="office-name">Greenberg Dental (Blanding 3)</h2>
-        <div class="office-meta">8440 Blanding Blvd • (904) 525-8041</div>
-      </div>
-      <div class="provider-list">
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Syed-Omair Ali</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Nnenda A. Chuku</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Joshua J. Estes</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Xiaoying Gu</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Jasmine McCaulley-Rennie</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Jong Yun Park</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-         <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Savanna M. Peterson</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="office-card">
-      <div class="office-header">
-        <h2 class="office-name">Greenberg Dental (Adams St)</h2>
-        <div class="office-meta">137 W Adams St • (904) 353-3303</div>
-      </div>
-      <div class="provider-list">
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Brittany L. Angelloz-Jones</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Michele L. Cavendish</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('greenberg')">
-          <div class="provider-info"><span class="provider-name">Robin F. Edwards</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-med">70%</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="office-card">
-      <div class="office-header">
-        <h2 class="office-name">Dwight W. Jones, DMD</h2>
-        <div class="office-meta">6514 San Juan Ave • (904) 786-5221</div>
-      </div>
-      <div class="provider-list">
-        <div class="provider-row" onclick="openModal('private_good')">
-          <div class="provider-info"><span class="provider-name">Dwight W. Jones</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-high">85%</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="office-card">
-      <div class="office-header">
-        <h2 class="office-name">Trang M. Cao, DMD</h2>
-        <div class="office-meta">11043 Crystal Springs Rd • (904) 329-7195</div>
-      </div>
-      <div class="provider-list">
-        <div class="provider-row" onclick="openModal('private_na')">
-          <div class="provider-info"><span class="provider-name">Trang M. Cao</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-none">N/A</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="office-card">
-      <div class="office-header">
-        <h2 class="office-name">Konstantine Sayaf</h2>
-        <div class="office-meta">1147 Edgewood Ave S • (904) 388-1421</div>
-      </div>
-      <div class="provider-list">
-        <div class="provider-row" onclick="openModal('private_good')">
-          <div class="provider-info"><span class="provider-name">Konstantine Sayaf</span><span class="provider-sub">General Practice</span></div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Rachel M. Schloth</span><span class="provider-sub">General Practice</span></div>
           <div class="review-badge score-high">88%</div>
         </div>
       </div>
@@ -456,12 +239,16 @@
 
     <div class="office-card">
       <div class="office-header">
-        <h2 class="office-name">William J. Clement II</h2>
-        <div class="office-meta">4006 Blanding Blvd • (904) 771-0367</div>
+        <h2 class="office-name">Advanced Dental Services (Maples)</h2>
+        <div class="office-meta">11512 Lake Mead Ave • (904) 731-0311</div>
       </div>
       <div class="provider-list">
-        <div class="provider-row" onclick="openModal('private_good')">
-          <div class="provider-info"><span class="provider-name">William J. Clement II</span><span class="provider-sub">General Practice</span></div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Andrew W. Maples</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-high">85%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Brian W. Maples</span><span class="provider-sub">General Practice</span></div>
           <div class="review-badge score-high">85%</div>
         </div>
       </div>
@@ -469,71 +256,189 @@
 
     <div class="office-card">
       <div class="office-header">
-        <h2 class="office-name">Kevin L. Kirk</h2>
-        <div class="office-meta">3965 Confederate Point Rd • (904) 772-0508</div>
+        <h2 class="office-name">Town Center Dental (4445)</h2>
+        <div class="office-meta">4445 Town Center Pkwy • (904) 800-5692</div>
       </div>
       <div class="provider-list">
-        <div class="provider-row" onclick="openModal('private_good')">
-          <div class="provider-info"><span class="provider-name">Kevin L. Kirk</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-high">82%</div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Garrett A. Karow</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Payton Ledman</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Hayat Masood</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="office-card">
+      <div class="office-header">
+        <h2 class="office-name">Town Center Dental (4520)</h2>
+        <div class="office-meta">4520 Town Center Pkwy • (904) 580-7861</div>
+      </div>
+      <div class="provider-list">
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Arefeh Eskandari</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Samidha Patel</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="office-card">
+      <div class="office-header">
+        <h2 class="office-name">Greenberg Dental (Atlantic Blvd)</h2>
+        <div class="office-meta">11919 Atlantic Blvd • (904) 204-9918</div>
+      </div>
+      <div class="provider-list">
+        <div class="provider-row" onclick="openModal('greenberg')">
+          <div class="provider-info"><span class="provider-name">Melissa Gonzalez Herrera</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">70%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('greenberg')">
+          <div class="provider-info"><span class="provider-name">Vu-Anh W. Nguyen</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">70%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('greenberg')">
+          <div class="provider-info"><span class="provider-name">Cynthia Odukomaiya</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">70%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="office-card">
+      <div class="office-header">
+        <h2 class="office-name">Kernan Blvd Dental Group</h2>
+        <div class="office-meta">1795 Kernan Blvd S • (904) 866-4796</div>
+      </div>
+      <div class="provider-list">
+        <div class="provider-row" onclick="openModal('greenberg')">
+          <div class="provider-info"><span class="provider-name">Christine F. Lama</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">70%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('greenberg')">
+          <div class="provider-info"><span class="provider-name">Alex B. McKinney</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">70%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('greenberg')">
+          <div class="provider-info"><span class="provider-name">Da-Thao T. Nguyen</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">70%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="office-card">
+      <div class="office-header">
+        <h2 class="office-name">Tamaya / Beach Blvd Dental</h2>
+        <div class="office-meta">12667 Beach Blvd • (904) 204-1542</div>
+      </div>
+      <div class="provider-list">
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Rami AL Saidi</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">David A. Hanania</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">S. Sundaralingam Quinn</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="office-card">
+      <div class="office-header">
+        <h2 class="office-name">Julington Creek Dental</h2>
+        <div class="office-meta">106 Julington Plaza Dr • (904) 230-5537</div>
+      </div>
+      <div class="provider-list">
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Karin L. Bodor</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Jason R. Speigel</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="office-card">
+      <div class="office-header">
+        <h2 class="office-name">Bartram Park Dental</h2>
+        <div class="office-meta">13720/13927 Old St Aug Rd</div>
+      </div>
+      <div class="provider-list">
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Danielle N. Hanford</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Anastasiya A. Papeko</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Marissa L. Hamilton</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Jesus Hernandez</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Pooja Sam</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
         </div>
       </div>
     </div>
 
      <div class="office-card">
       <div class="office-header">
-        <h2 class="office-name">Brotman & Poblenz / Phillips</h2>
-        <div class="office-meta">3647/3665 Hendricks Ave • (904) 396-4091</div>
+        <h2 class="office-name">Gazebo Park Dental</h2>
+        <div class="office-meta">6144 Gazebo Park PL S • (904) 262-9466</div>
       </div>
       <div class="provider-list">
-        <div class="provider-row" onclick="openModal('private_good')">
-          <div class="provider-info"><span class="provider-name">Solomon G. Brotman</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-high">90%</div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Antal B. Barbela</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
         </div>
-        <div class="provider-row" onclick="openModal('private_good')">
-          <div class="provider-info"><span class="provider-name">Charles A. Poblenz</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-high">90%</div>
-        </div>
-        <div class="provider-row" onclick="openModal('private_good')">
-          <div class="provider-info"><span class="provider-name">Guy L. Phillips</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-high">90%</div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Jignesh D. Patel</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
         </div>
       </div>
     </div>
 
     <div class="office-card">
       <div class="office-header">
-        <h2 class="office-name">Ortega Dental</h2>
-        <div class="office-meta">5417 Ortega Blvd • (904) 384-4391</div>
+        <h2 class="office-name">Baymeadows East Dental</h2>
+        <div class="office-meta">7807 Baymeadows Rd E • (904) 854-2300</div>
       </div>
       <div class="provider-list">
-        <div class="provider-row" onclick="openModal('private_good')">
-          <div class="provider-info"><span class="provider-name">Erik Hekkert</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-high">87%</div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Alicia B. Matayoshi</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
         </div>
-        <div class="provider-row" onclick="openModal('private_good')">
-          <div class="provider-info"><span class="provider-name">Harris L. Rittenberg</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-high">87%</div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Rajeev Patel</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
+        </div>
+        <div class="provider-row" onclick="openModal('generic')">
+          <div class="provider-info"><span class="provider-name">Anna Pukhovitskaya</span><span class="provider-sub">General Practice</span></div>
+          <div class="review-badge score-med">75%</div>
         </div>
       </div>
     </div>
 
-    <div class="office-card">
-      <div class="office-header">
-        <h2 class="office-name">ASAP Dental Care (Riverside)</h2>
-        <div class="office-meta">1550 Riverside Ave • (904) 384-0383</div>
-      </div>
-      <div class="provider-list">
-        <div class="provider-row" onclick="openModal('private_na')">
-          <div class="provider-info"><span class="provider-name">Jasmine Shakya</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-none">N/A</div>
-        </div>
-        <div class="provider-row" onclick="openModal('private_na')">
-          <div class="provider-info"><span class="provider-name">Daya Wood</span><span class="provider-sub">General Practice</span></div>
-          <div class="review-badge score-none">N/A</div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -564,51 +469,36 @@
     },
     greenberg: {
       verdict: "Corporate Chain / High Volume",
-      exp: "Large chain (Greenberg Dental). Reviews are mixed: availability is great and they take many insurances, but patients often report long wait times, feeling rushed, or feeling pressured into extra services.",
+      exp: "Large chain (Greenberg/Aspen/Great Expressions). Reviews are mixed: availability is great, but patients often report long wait times or feeling rushed.",
       trust: "Moderate. Standard corporate dentistry model."
     },
-    private_good: {
-      verdict: "Local Private Practice",
-      exp: "Generally stable, long-term patient base. Private practices in this area typically have better on-time performance than chains.",
-      trust: "High. Local reputation is key for these offices."
-    },
-    private_na: {
-      verdict: "Insufficient Data",
-      exp: "No specific patient reviews found for this provider/location.",
-      trust: "Unknown"
+    generic: {
+      verdict: "Standard Provider",
+      exp: "No specific negative flags found. Typical general practice listing.",
+      trust: "Standard"
     }
   };
 
   // Specific Data Overrides
   const dentistData = {
-    'sharod': { name: "Sharod McKinney", score: "94%", class: "score-high", verdict: "Patient Favorite", experience: "Praised for explaining conditions clearly.", trust: "High" },
-    'brock': { name: "Brock A. Philips", score: "88%", class: "score-high", verdict: "Highly Reliable", experience: "Honest and conservative treatment.", trust: "High" },
-    'susan': { name: "Susan B. Jones", score: "60%", class: "score-med", verdict: "Mixed Bag", experience: "Polarizing personality reviews.", trust: "Moderate" },
-    'haitham': { name: "Haitham Nabood", score: "WARNING", class: "score-low", verdict: "Out of Plan Soon", experience: "Leaving network 04/01/2026.", trust: "N/A" },
-    
-    // Fetner
+    // Top Rated
     'fetner': { name: "Howard A. Fetner", score: "100%", class: "score-high", verdict: TEXT.fetner.verdict, experience: TEXT.fetner.exp, trust: TEXT.fetner.trust },
+    'gatling': { name: "Robert S. Gatling", score: "100%", class: "score-high", verdict: "Top Rated (5.0)", experience: "Perfect 5.0 rating reported.", trust: "Elite" },
+    'halady': { name: "Pratima G. Halady", score: "100%", class: "score-high", verdict: "Top Rated (5.0)", experience: "Perfect 5.0 rating reported.", trust: "Elite" },
+    'debonis': { name: "Kristen N. De Bonis", score: "100%", class: "score-high", verdict: "Top Rated (5.0)", experience: "Perfect 5.0 rating reported.", trust: "Elite" },
 
     // Categories
-    'greenberg': { name: "Greenberg Provider", score: "70%", class: "score-med", verdict: TEXT.greenberg.verdict, experience: TEXT.greenberg.exp, trust: TEXT.greenberg.trust },
-    'private_good': { name: "Private Practitioner", score: "85%", class: "score-high", verdict: TEXT.private_good.verdict, experience: TEXT.private_good.exp, trust: TEXT.private_good.trust },
-    'private_na': { name: "Provider", score: "N/A", class: "score-none", verdict: TEXT.private_na.verdict, experience: TEXT.private_na.exp, trust: TEXT.private_na.trust },
-    
-    // Legacy / Defaults
-    'magied': { name: "Magied Bishara", score: "90%", class: "score-high", verdict: "Excellent Tech", experience: "Uses cameras, transparent.", trust: "Very High" },
-    'kevin_n': { name: "Kevin Nguyen", score: "85%", class: "score-high", verdict: "Solid Reputation", experience: "Gentle cleaning.", trust: "High" },
-    'generic_jax': { name: "JAX Multispecialty Provider", score: "75%", class: "score-med", verdict: "Group Practice", experience: "Good technical feedback.", trust: "Good" }
+    'greenberg': { name: "Group/Chain Provider", score: "70%", class: "score-med", verdict: TEXT.greenberg.verdict, experience: TEXT.greenberg.exp, trust: TEXT.greenberg.trust },
+    'generic': { name: "General Provider", score: "75%", class: "score-med", verdict: TEXT.generic.verdict, experience: TEXT.generic.exp, trust: TEXT.generic.trust },
   };
 
   function openModal(id) {
     let data = dentistData[id];
     
     // If clicked from a row, try to grab the name from the row itself to override the generic name
-    // This is a simple hack to make the modal feel dynamic without 100 data entries
     if(window.event && window.event.currentTarget) {
        const clickedName = window.event.currentTarget.querySelector('.provider-name').innerText;
        if(data.name.includes("Provider") || data.name.includes("Practitioner")) {
-         // Create a temporary shallow copy so we don't overwrite the original object permanently
          data = { ...data, name: clickedName }; 
        }
     }
